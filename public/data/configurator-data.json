@@ -1,0 +1,118 @@
+{
+  "config": {
+    "command": "python3",
+    "script": "./setup_sdp.py"
+  },
+  "operators": [
+    {
+      "key": "monitoring",
+      "name": "Monitoring",
+      "command": "--prometheus",
+      "checked": false
+    },
+    {
+      "key": "kindCluster",
+      "name": "Kind Cluster",
+      "command": "--kind",
+      "checked": false
+    },
+    {
+      "key": "examples",
+      "name": "Examples",
+      "command": "--examples",
+      "checked": false
+    },
+    {
+      "key": "debugMode",
+      "name": "Debug Mode",
+      "command": "--debug",
+      "checked": false
+    }
+  ],
+  "technologies": [
+    {
+      "id": 1,
+      "name": "Trino",
+      "img": "trino.png?v=3",
+      "imgActive": "trino-active.png?v=3",
+      "command": "trino"
+    },
+    {
+      "id": 2,
+      "name": "Spark",
+      "img": "apache-spark.png?v=3",
+      "imgActive": "apache-spark-active.png?v=3",
+      "command": "spark"
+    },
+    {
+      "id": 3,
+      "name": "Nifi",
+      "img": "apache-nifi.png?v=3",
+      "imgActive": "apache-nifi-active.png?v=3",
+      "command": "nifi"
+    },
+    {
+      "id": 4,
+      "name": "Kafka",
+      "img": "kafta.png?v=3",
+      "imgActive": "kafta-active.png?v=3",
+      "command": "kafka"
+    },
+    {
+      "id": 5,
+      "name": "Airflow",
+      "img": "apache-airflow.png?v=3",
+      "imgActive": "apache-airflow-active.png?v=3",
+      "command": "airflow"
+    },
+    {
+      "id": 6,
+      "name": "Druid",
+      "img": "druid.png?v=3",
+      "imgActive": "druid-active.png?v=3",
+      "command": "druid"
+    },
+    {
+      "id": 7,
+      "name": "Apache Superset",
+      "img": "apache-superset.png?v=3",
+      "imgActive": "apache-superset-active.png?v=3",
+      "command": "superset"
+    },
+    {
+      "id": 8,
+      "name": "Apache Hbase",
+      "img": "apache-hbase.png?v=3",
+      "imgActive": "apache-hbase-active.png?v=3",
+      "command": "hbase"
+    },
+    {
+      "id": 9,
+      "name": "Hadoop",
+      "img": "hadoop.png?v=3",
+      "imgActive": "hadoop-active.png?v=3",
+      "command": "hdfs"
+    },
+    {
+      "id": 10,
+      "name": "Apache Zoo Keeper",
+      "img": "apache-zoo-keeper.png?v=3",
+      "imgActive": "apache-zoo-keeper-active.png?v=3",
+      "command": "zookeeper"
+    },
+    {
+      "id": 11,
+      "name": "Hive",
+      "img": "hive.png?v=3",
+      "imgActive": "hive-active.png?v=3",
+      "command": "hive"
+    },
+    {
+      "id": 12,
+      "name": "Apache IoTDB",
+      "img": "apache-iotdb.png?v=3",
+      "imgActive": "apache-iotdb-active.png?v=3",
+      "command": "iotdb"
+    }
+  ]
+}
