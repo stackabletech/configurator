@@ -1,31 +1,13 @@
 {
   "config": {
-    "command": "python3",
-    "script": "./setup_sdp.py"
+    "command": "stackablectl",
+    "script": "operator install"
   },
   "operators": [
-    {
-      "key": "monitoring",
-      "name": "Monitoring",
-      "command": "--prometheus",
-      "checked": false
-    },
     {
       "key": "kindCluster",
       "name": "Kind Cluster",
       "command": "--kind",
-      "checked": false
-    },
-    {
-      "key": "examples",
-      "name": "Examples",
-      "command": "--examples",
-      "checked": false
-    },
-    {
-      "key": "debugMode",
-      "name": "Debug Mode",
-      "command": "--debug",
       "checked": false
     }
   ],
@@ -95,7 +77,7 @@
     },
     {
       "id": 10,
-      "name": "Apache Zoo Keeper",
+      "name": "Apache ZooKeeper",
       "img": "apache-zoo-keeper.png?v=3",
       "imgActive": "apache-zoo-keeper-active.png?v=3",
       "command": "zookeeper"
@@ -109,10 +91,10 @@
     },
     {
       "id": 12,
-      "name": "Apache IoTDB",
-      "img": "apache-iotdb.png?v=3",
-      "imgActive": "apache-iotdb-active.png?v=3",
-      "command": "iotdb"
+      "name": "Stackable",
+      "img": "stackable.png",
+      "imgActive": "stackable.png",
+      "command": "commons secret opa"
     }
   ]
 }
