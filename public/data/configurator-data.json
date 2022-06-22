@@ -7,7 +7,7 @@
     {
       "key": "kindCluster",
       "name": "Kind Cluster",
-      "command": "--kind",
+      "command": "--kind-cluster",
       "checked": false
     }
   ],
