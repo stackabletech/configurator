@@ -62,7 +62,6 @@ In our case, we created a folder `configurator` inside the active theme folder.
 // Configurator assets
 function stackable_configurator_scripts()
 {
-	wp_enqueue_style( 'google-fonts-roboto', 'https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap', false );
 	wp_enqueue_style('svelte-configurator-styles', '/configurator/build/bundle.css', '',time(), false);
 	wp_enqueue_script('svelte-configurator-js', '/configurator/build/bundle.js','',time(),true);
 }
