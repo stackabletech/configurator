@@ -1,3 +1,11 @@
+@font-face {
+    font-family: 'Roboto Mono';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('fonts/RobotoMono-normal-700.ttf') format('truetype');
+}
+
 * {
     box-sizing: border-box;
 }
