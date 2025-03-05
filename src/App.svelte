@@ -14,16 +14,9 @@
   });
 
   let selectedTechnologiesIds: Array<number> = $state([]);
-  
-
   let selectedOperators: Array<Operator> = $state([]);
-  
-
   let getSelectedTechnologiesData: Array<String> = $state([]);
-  
-
   let getSelectedOperatorsData: Array<String> = $state([]);
-  
 
   const selectTechnology = (e: any) => {
     const index = selectedTechnologiesIds.indexOf(e.detail.id);
