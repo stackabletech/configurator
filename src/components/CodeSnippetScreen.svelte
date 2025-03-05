@@ -1,31 +1,21 @@
+<!-- @migration-task Error while migrating Svelte code: `$:` is not allowed in runes mode, use `$derived` or `$effect` instead
+https://svelte.dev/e/legacy_reactive_statement_invalid -->
 <script lang="ts">
   import { inview } from "svelte-inview";
   import Typewriter from "svelte-typewriter";
 
-  export let selectedTechnologies: Array<String>;
-  export let selectedOperators: Array<String>;
-  export let config: Config;
+  let { selectedTechnologies, selectedOperators, config } = $props();
 
-  let codeSnippetCommandsDefaults: Array<String> = [];
-  $: codeSnippetCommandsDefaults = [config.command, config.script];
-
-  let codeSnippetCommandsList: Array<String> = [];
-  $: codeSnippetCommandsList = [];
-
-  let codeSnippetText: string;
-  $: codeSnippetText;
-
-  $effect(() => {
-    codeSnippetCommandsList = [
+  let codeSnippetCommandsDefaults: Array<String> = $derived([config.command, config.script]);
+  let codeSnippetCommandsList: Array<String> = $derived(
+    [
       ...codeSnippetCommandsDefaults,
       ...selectedTechnologies,
       ...selectedOperators,
-    ];
-    codeSnippetText = codeSnippetCommandsList.join(" ");
-  });
-
-  let copied: boolean;
-  $: copied = false;
+    ]
+  );
+  let codeSnippetText: string = $derived(codeSnippetCommandsList.join(" "));
+  let copied: boolean = $state(false);
 
   const copyToClipboard = async (str: string) => {
     const el = document.createElement("textarea");
@@ -45,8 +35,8 @@
 
   // Typewriter
 
-  let isInView;
-  let hideTypes = true;
+  let isInView = $state(false);
+  let hideTypes = $state(true);
   const typeWriterDone = () => {
     setTimeout(() => {
       hideTypes = false;
