@@ -6,7 +6,7 @@
   import { onMount } from "svelte";
 
   let getConfiguratorData;
-  const apiUrl = process.env.API_URL;
+  const apiUrl = import.meta.env.VITE_API_URL;
 
   onMount(async () => {
     const response = await fetch(apiUrl);
@@ -64,7 +64,6 @@
     getSelectedOperatorsData = filteredOperators.map(
       (technology) => technology.command
     );
-    console.log(getSelectedOperatorsData);
   };
 </script>
 
@@ -88,7 +87,7 @@
           />
         </div>
       </div>
-      <div class="clearfix" />
+      <div class="clearfix"></div>
       <div class="operators-checkboxes">
         <div class="check__item">
           {#each getConfiguratorData.operators as operator}

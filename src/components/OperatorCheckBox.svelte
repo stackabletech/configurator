@@ -21,7 +21,7 @@
       value={operator.key}
       on:change={() => selectOperator(operator)}
     />
-    <span class="custom__check" />
+    <span class="custom__check"></span>
     {operator.name}
   </label>
 </div>

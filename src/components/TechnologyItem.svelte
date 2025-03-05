@@ -1,7 +1,7 @@
 <script lang="ts">
   import { createEventDispatcher } from "svelte";
 
-  const imagesBaseUrl = process.env.IMAGES_BASE_URL;
+  const imagesBaseUrl = import.meta.env.VITE_IMAGES_BASE_URL;
 
   export let technology: Technology;
   let itemActive: boolean = false;
