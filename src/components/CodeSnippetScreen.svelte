@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { afterUpdate } from "svelte";
   import { inview } from "svelte-inview";
   import Typewriter from "svelte-typewriter";
 
@@ -16,7 +15,7 @@
   let codeSnippetText: string;
   $: codeSnippetText;
 
-  afterUpdate(() => {
+  $effect(() => {
     codeSnippetCommandsList = [
       ...codeSnippetCommandsDefaults,
       ...selectedTechnologies,

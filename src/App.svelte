@@ -5,7 +5,7 @@
 
   import { onMount } from "svelte";
 
-  let getConfiguratorData;
+  let getConfiguratorData = $state();
   const apiUrl = import.meta.env.VITE_API_URL;
 
   onMount(async () => {
@@ -13,17 +13,17 @@
     getConfiguratorData = await response.json();
   });
 
-  let selectedTechnologiesIds: Array<number>;
-  $: selectedTechnologiesIds = [];
+  let selectedTechnologiesIds: Array<number> = $state([]);
+  
 
-  let selectedOperators: Array<Operator>;
-  $: selectedOperators = [];
+  let selectedOperators: Array<Operator> = $state([]);
+  
 
-  let getSelectedTechnologiesData: Array<String>;
-  $: getSelectedTechnologiesData = [];
+  let getSelectedTechnologiesData: Array<String> = $state([]);
+  
 
-  let getSelectedOperatorsData: Array<String>;
-  $: getSelectedOperatorsData = [];
+  let getSelectedOperatorsData: Array<String> = $state([]);
+  
 
   const selectTechnology = (e: any) => {
     const index = selectedTechnologiesIds.indexOf(e.detail.id);

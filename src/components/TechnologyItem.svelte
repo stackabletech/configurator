@@ -3,8 +3,12 @@
 
   const imagesBaseUrl = import.meta.env.VITE_IMAGES_BASE_URL;
 
-  export let technology: Technology;
-  let itemActive: boolean = false;
+  interface Props {
+    technology: Technology;
+  }
+
+  let { technology }: Props = $props();
+  let itemActive: boolean = $state(false);
   const dispatch = createEventDispatcher();
 
   function selectTechnology(id: number) {
@@ -17,7 +21,7 @@
   <button
     class="technology-item-button"
     class:item-active={itemActive}
-    on:click={() => selectTechnology(technology.id)}
+    onclick={() => selectTechnology(technology.id)}
   >
     <div class="itm-logo-container">
       <span class="item-logo">

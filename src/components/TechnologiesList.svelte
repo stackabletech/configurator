@@ -2,8 +2,12 @@
   import TechnologyItem from "./TechnologyItem.svelte";
   import OperatorCheckBox from "./OperatorCheckBox.svelte";
 
-  export let technologiesListData: Array<Technology>;
-  export let operatorsListData: Array<Operator>;
+  interface Props {
+    technologiesListData: Array<Technology>;
+    operatorsListData: Array<Operator>;
+  }
+
+  let { technologiesListData, operatorsListData }: Props = $props();
 </script>
 
 <div class="technologies-list">

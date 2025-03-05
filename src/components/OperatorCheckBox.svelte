@@ -1,7 +1,11 @@
 <script lang="ts">
   import { createEventDispatcher } from "svelte";
 
-  export let operator: Operator;
+  interface Props {
+    operator: Operator;
+  }
+
+  let { operator = $bindable() }: Props = $props();
 
   let itemActive: boolean = false;
   const dispatch = createEventDispatcher();
@@ -19,7 +23,7 @@
       class="default__check switchbox"
       bind:checked={operator.checked}
       value={operator.key}
-      on:change={() => selectOperator(operator)}
+      onchange={() => selectOperator(operator)}
     />
     <span class="custom__check"></span>
     {operator.name}
