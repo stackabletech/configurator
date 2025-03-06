@@ -63,26 +63,21 @@
       <span class="text-copied"> Copied </span>
     </div>
   {/if}
-  <div class="copy-icon" onclick={() => copyToClipboard(codeSnippetText)}>
+  <button class="copy-icon" aria-label="Copy to clipboard" onclick={() => copyToClipboard(codeSnippetText)}>
     <svg
       xmlns="http://www.w3.org/2000/svg"
       class="h-5 w-5"
       viewBox="0 0 20 20"
-      fill="currentColor"
+      fill="white"
     >
       <path d="M8 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z" />
       <path
         d="M6 3a2 2 0 00-2 2v11a2 2 0 002 2h8a2 2 0 002-2V5a2 2 0 00-2-2 3 3 0 01-3 3H9a3 3 0 01-3-3z"
       />
     </svg>
-  </div>
+  </button>
 </div>
 
-<!-- <div class="copy-button">
-  <button on:click={() => copyToClipboard(codeSnippetText)}>
-    Copy code snippet
-  </button>
-</div> -->
 <style lang="scss">
   .snippet-screen {
     padding: 35px 40px;
@@ -110,51 +105,13 @@
     bottom: -3px;
     width: 20px;
     cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    z-index: 1001; /* Ensure it's above other elements */
     @media (max-width: 760px) {
       right: 5px;
       bottom: 4px;
-    }
-  }
-
-  .copy-button {
-    button {
-      text-align: center;
-      padding: 16px 32px;
-      background: #0080bd;
-      border-radius: 4px;
-      padding: 20px;
-      color: white;
-      text-transform: uppercase;
-      border-color: #0080bd;
-      cursor: pointer;
-      box-shadow: none;
-      border: 0;
-      outline: none;
-
-      font-family: "Titillium Web", Sans-serif;
-      font-size: 14px;
-      font-weight: 600;
-      font-style: normal;
-      text-decoration: none;
-      line-height: 1.5em;
-      letter-spacing: 0.5px;
-
-      &:hover,
-      &:focus {
-        background: #000;
-      }
-
-      &:focus {
-        outline: 1px solid rgba(#000, 0.9);
-        outline-offset: -4px;
-      }
-
-      &:active {
-        transform: scale(0.99);
-      }
-    }
-    @media (max-width: 760px) {
-      text-align: center;
     }
   }
 

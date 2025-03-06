@@ -13,10 +13,10 @@
     "@sveltejs/vite-plugin-svelte": "^5.0.3",
     "@tsconfig/svelte": "^5.0.4",
     "sass-embedded": "^1.85.1",
-    "svelte": "^5.20.2",
-    "svelte-check": "^4.1.4",
+    "svelte": "^5.22.5",
+    "svelte-check": "^4.1.5",
     "svelte-typewriter": "^3.2.3",
-    "typescript": "~5.7.2",
+    "typescript": "~5.8.2",
     "vite": "^6.2.0"
   },
   "dependencies": {
