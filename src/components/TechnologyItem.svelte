@@ -5,13 +5,22 @@
 
   interface Props {
     technology: Technology;
+    required: boolean;
   }
 
   let { technology }: Props = $props();
-  let itemActive: boolean = $state(false);
+  let itemActive: boolean = $state(technology.required);
   const dispatch = createEventDispatcher();
 
+  // svelte-ignore state_referenced_locally
+  if (itemActive) {
+    dispatch("select-technology", { id: technology.id });
+  }
+
   function selectTechnology(id: number) {
+    if (technology.required) {
+      return;
+    }
     itemActive = !itemActive;
     dispatch("select-technology", { id: technology.id });
   }
@@ -55,11 +64,11 @@
     @media (hover: hover) {
       &:hover {
         background: rgb(39, 46, 58);
-  
+
         .item-logo {
           opacity: 0;
           visibility: hidden;
-  
+
           &.active {
             opacity: 1;
             visibility: visible;
@@ -69,7 +78,7 @@
           background: #b90069;
         }
       }
-      
+
     }
 
     &.item-active {

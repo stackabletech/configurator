@@ -17,7 +17,8 @@
       "name": "Stackable",
       "img": "stackable.png",
       "imgActive": "stackable.png",
-      "command": "commons secret opa listener"
+      "command": "commons secret opa listener",
+      "required": true
     },
     {
       "id": 2,

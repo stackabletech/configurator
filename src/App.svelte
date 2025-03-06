@@ -39,10 +39,9 @@
   };
 
   const selectOperator = (e: any) => {
-    // selectedOperators.push(e.detail.operator);
     const objIndex = selectedOperators.findIndex(
       (obj) => obj.key == e.detail.operator.key
-    ); 
+    );
 
     if (objIndex > -1) {
       selectedOperators[objIndex] = e.detail.operator;
@@ -114,7 +113,7 @@
       }
       .operators-checkboxes {
         order: 2;
-        
+
       }
     }
   }

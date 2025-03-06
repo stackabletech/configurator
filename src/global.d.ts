@@ -6,6 +6,7 @@ type Technology = {
     img: string;
     imgActive: string;
     command: string;
+    required: boolean
 }
 
 type Config = {

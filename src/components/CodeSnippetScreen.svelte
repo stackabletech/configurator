@@ -1,5 +1,3 @@
-<!-- @migration-task Error while migrating Svelte code: `$:` is not allowed in runes mode, use `$derived` or `$effect` instead
-https://svelte.dev/e/legacy_reactive_statement_invalid -->
 <script lang="ts">
   import { inview } from "svelte-inview";
   import Typewriter from "svelte-typewriter";
@@ -47,7 +45,7 @@ https://svelte.dev/e/legacy_reactive_statement_invalid -->
 <div
   class="snippet-screen"
   use:inview={{ unobserveOnEnter: true, rootMargin: "-20%" }}
-  on:change={({ detail }) => {
+  oninview_change={({ detail }) => {
     isInView = detail.inView;
   }}
 >
@@ -65,7 +63,7 @@ https://svelte.dev/e/legacy_reactive_statement_invalid -->
       <span class="text-copied"> Copied </span>
     </div>
   {/if}
-  <div class="copy-icon" on:click={() => copyToClipboard(codeSnippetText)}>
+  <div class="copy-icon" onclick={() => copyToClipboard(codeSnippetText)}>
     <svg
       xmlns="http://www.w3.org/2000/svg"
       class="h-5 w-5"
