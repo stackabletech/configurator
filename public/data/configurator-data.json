@@ -25,7 +25,7 @@
       "name": "Apache Spark",
       "img": "apache-spark.png?v=3",
       "imgActive": "apache-spark-active.png?v=3",
-      "command": "spark"
+      "command": "spark-k8s"
     },
     {
       "id": 3,
@@ -71,7 +71,7 @@
     },
     {
       "id": 9,
-      "name": "Apache Hadoop",
+      "name": "Apache Hadoop HDFS",
       "img": "hadoop.png?v=3",
       "imgActive": "hadoop-active.png?v=3",
       "command": "hdfs"
