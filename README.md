@@ -9,6 +9,7 @@ Install the dependencies...
 ```bash
 npm install
 ```
+
 Update .env file (use the `.env.example` as an example)
 
 ```bash
@@ -16,8 +17,8 @@ VITE_API_URL= http://localhost:5173/data/configurator-data.json
 VITE_IMAGES_BASE_URL= http://localhost:5173/images/
 ```
 
-* VITE_API_URL: Where the data file is saved.
-* VITE_IMAGES_BASE_URL: Base URL for technologies logos.
+- VITE_API_URL: Where the data file is saved.
+- VITE_IMAGES_BASE_URL: Base URL for technologies logos.
 
 Update JSON file and upload logos to the ´images´ folder:
 
@@ -26,6 +27,7 @@ cd public/data
 touch configurator-data.json
 
 ```
+
 This file works as a database for the configurator data.
 You can also upload the file to a remote server, then update `API_URL` inside the `.env` file.
 
@@ -51,7 +53,7 @@ npm run build
 ## Deploying to WordPress project:
 
 1. Upload the files to the WordPress server.
-In our case, we created a folder `configurator` inside the active theme folder.
+   In our case, we created a folder `configurator` inside the active theme folder.
 
 2. Update `functions.php` (in the active theme folder, e.g. `wp-content/themes/stratusx-child/functions.php`) to inject CSS and JS with WordPress hook `wp_enqueue_script`.
 

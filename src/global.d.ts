@@ -1,13 +1,13 @@
 /// <reference types="svelte" />
 
 type Technology = {
-    id: number;
-    name: string;
-    img: string;
-    imgActive: string;
-    command: string;
-    required: boolean
-}
+  id: number;
+  name: string;
+  img: string;
+  imgActive: string;
+  command: string;
+  required: boolean;
+};
 
 type Config = {
   command: string;
