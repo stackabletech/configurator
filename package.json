@@ -16,11 +16,7 @@
     "sass-embedded": "^1.86.0",
     "svelte": "^5.25.3",
     "svelte-check": "^4.1.5",
-    "svelte-typewriter": "^3.2.3",
     "typescript": "~5.8.2",
     "vite": "^6.2.3"
-  },
-  "dependencies": {
-    "svelte-inview": "^4.0.4"
   }
 }

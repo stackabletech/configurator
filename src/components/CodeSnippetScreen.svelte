@@ -1,17 +1,12 @@
 <script lang="ts">
-  import { inview } from "svelte-inview";
-  import Typewriter from "svelte-typewriter";
-
-  let { selectedTechnologies, selectedOperators, config } = $props();
+  let {
+    selectedTechnologies,
+    selectedOperators,
+    config
+  } = $props();
 
   let codeSnippetCommandsDefaults: Array<String> = $derived([config.command, config.script]);
-  let codeSnippetCommandsList: Array<String> = $derived(
-    [
-      ...codeSnippetCommandsDefaults,
-      ...selectedTechnologies,
-      ...selectedOperators,
-    ]
-  );
+  let codeSnippetCommandsList: Array<String> = $derived([...codeSnippetCommandsDefaults, ...selectedTechnologies, ...selectedOperators,]);
   let codeSnippetText: string = $derived(codeSnippetCommandsList.join(" "));
   let copied: boolean = $state(false);
 
@@ -30,39 +25,15 @@
       copied = false;
     }, 1000);
   };
-
-  // Typewriter
-
-  let isInView = $state(false);
-  let hideTypes = $state(true);
-  const typeWriterDone = () => {
-    setTimeout(() => {
-      hideTypes = false;
-    }, 2000);
-  };
 </script>
 
 <div
   class="snippet-screen"
-  use:inview={{ unobserveOnEnter: true, rootMargin: "-20%" }}
-  oninview_change={({ detail }) => {
-    isInView = detail.inView;
-  }}
 >
-  {#if isInView}
-    {#if hideTypes}
-      <Typewriter on:done={() => typeWriterDone()} interval={80}>
-        <span> {codeSnippetText} </span>
-      </Typewriter>
-    {:else}
-      <span> {codeSnippetText} </span>
-    {/if}
-    <div
-      class={copied === true ? "text-copied-layer show" : "text-copied-layer"}
-    >
-      <span class="text-copied"> Copied </span>
-    </div>
-  {/if}
+  <span> {codeSnippetText} </span>
+  <div class={copied === true ? "text-copied-layer show" : "text-copied-layer"}>
+    <span class="text-copied"> Copied </span>
+  </div>
   <button class="copy-icon" aria-label="Copy to clipboard" onclick={() => copyToClipboard(codeSnippetText)}>
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -70,7 +41,7 @@
       viewBox="0 0 20 20"
       fill="white"
     >
-      <path d="M8 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z" />
+      <path d="M8 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z"/>
       <path
         d="M6 3a2 2 0 00-2 2v11a2 2 0 002 2h8a2 2 0 002-2V5a2 2 0 00-2-2 3 3 0 01-3 3H9a3 3 0 01-3-3z"
       />
@@ -132,6 +103,7 @@
       transition: opacity 0.4s;
     }
   }
+
   .text-copied {
     background-color: rgba(#b90069, 1);
     color: white;
