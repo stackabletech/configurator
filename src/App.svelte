@@ -5,7 +5,7 @@
 
   import { onMount } from "svelte";
 
-  let getConfiguratorData = $state();
+  let getConfiguratorData: ConfiguratorData | undefined = $state();
   const apiUrl = import.meta.env.VITE_API_URL;
 
   onMount(async () => {
@@ -15,8 +15,8 @@
 
   let selectedTechnologiesIds: Array<number> = $state([]);
   let selectedOperators: Array<Operator> = $state([]);
-  let getSelectedTechnologiesData: Array<String> = $state([]);
-  let getSelectedOperatorsData: Array<String> = $state([]);
+  let getSelectedTechnologiesData: Array<string> = $state([]);
+  let getSelectedOperatorsData: Array<string> = $state([]);
 
   const selectTechnology = (e: any) => {
     const index = selectedTechnologiesIds.indexOf(e.detail.id);
@@ -29,13 +29,13 @@
   };
 
   const generateArrayCommand = (selectedArray: Array<number>) => {
-    let filteredTechnologies = getConfiguratorData.technologies.filter(
+    let filteredTechnologies = getConfiguratorData?.technologies.filter(
       (item) => selectedArray.indexOf(item.id) > -1
     );
 
-    getSelectedTechnologiesData = filteredTechnologies.map(
+    getSelectedTechnologiesData = filteredTechnologies?.map(
       (technology) => technology.command
-    );
+    ) || [];
   };
 
   const selectOperator = (e: any) => {
@@ -65,7 +65,6 @@
       <div class="col technologies-col">
         <TechnologiesList
           technologiesListData={getConfiguratorData.technologies}
-          operatorsListData={getConfiguratorData.operators}
           on:select-technology={selectTechnology}
           on:select-operator={selectOperator}
         />
@@ -82,7 +81,7 @@
       <div class="clearfix"></div>
       <div class="operators-checkboxes">
         <div class="check__item">
-          {#each getConfiguratorData.operators as operator}
+          {#each getConfiguratorData.operators as operator (operator.key)}
             <OperatorCheckBox {operator} on:select-operator={selectOperator} />
           {/each}
         </div>

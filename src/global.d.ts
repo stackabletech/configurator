@@ -20,3 +20,9 @@ type Operator = {
   key: string;
   checked: false;
 };
+
+interface ConfiguratorData {
+  config: Config,
+  operators: Operator[];
+  technologies: Technology[];
+}

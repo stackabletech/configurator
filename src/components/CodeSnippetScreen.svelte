@@ -5,8 +5,8 @@
     config
   } = $props();
 
-  let codeSnippetCommandsDefaults: Array<String> = $derived([config.command, config.script]);
-  let codeSnippetCommandsList: Array<String> = $derived([...codeSnippetCommandsDefaults, ...selectedTechnologies, ...selectedOperators,]);
+  let codeSnippetCommandsDefaults: Array<string> = $derived([config.command, config.script]);
+  let codeSnippetCommandsList: Array<string> = $derived([...codeSnippetCommandsDefaults, ...selectedTechnologies, ...selectedOperators,]);
   let codeSnippetText: string = $derived(codeSnippetCommandsList.join(" "));
   let copied: boolean = $state(false);
 

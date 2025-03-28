@@ -1,17 +1,15 @@
 <script lang="ts">
   import TechnologyItem from "./TechnologyItem.svelte";
-  import OperatorCheckBox from "./OperatorCheckBox.svelte";
 
   interface Props {
     technologiesListData: Array<Technology>;
-    operatorsListData: Array<Operator>;
   }
 
-  let { technologiesListData, operatorsListData }: Props = $props();
+  let { technologiesListData }: Props = $props();
 </script>
 
 <div class="technologies-list">
-  {#each technologiesListData as technology}
+  {#each technologiesListData as technology (technology.id)}
     <TechnologyItem {technology} on:select-technology />
   {/each}
 </div>

@@ -5,7 +5,6 @@
 
   interface Props {
     technology: Technology;
-    required: boolean;
   }
 
   let { technology }: Props = $props();
@@ -17,7 +16,7 @@
     dispatch("select-technology", { id: technology.id });
   }
 
-  function selectTechnology(id: number) {
+  function selectTechnology() {
     if (technology.required) {
       return;
     }
