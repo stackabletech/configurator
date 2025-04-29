@@ -5,25 +5,18 @@
 
   import { onMount } from "svelte";
 
-  let getConfiguratorData;
-  const apiUrl = process.env.API_URL;
+  let getConfiguratorData: ConfiguratorData | undefined = $state();
+  const apiUrl = import.meta.env.VITE_API_URL;
 
   onMount(async () => {
     const response = await fetch(apiUrl);
     getConfiguratorData = await response.json();
   });
 
-  let selectedTechnologiesIds: Array<number>;
-  $: selectedTechnologiesIds = [];
-
-  let selectedOperators: Array<Operator>;
-  $: selectedOperators = [];
-
-  let getSelectedTechnologiesData: Array<String>;
-  $: getSelectedTechnologiesData = [];
-
-  let getSelectedOperatorsData: Array<String>;
-  $: getSelectedOperatorsData = [];
+  let selectedTechnologiesIds: Array<number> = $state([]);
+  let selectedOperators: Array<Operator> = $state([]);
+  let getSelectedTechnologiesData: Array<string> = $state([]);
+  let getSelectedOperatorsData: Array<string> = $state([]);
 
   const selectTechnology = (e: any) => {
     const index = selectedTechnologiesIds.indexOf(e.detail.id);
@@ -36,20 +29,19 @@
   };
 
   const generateArrayCommand = (selectedArray: Array<number>) => {
-    let filteredTechnologies = getConfiguratorData.technologies.filter(
+    let filteredTechnologies = getConfiguratorData?.technologies.filter(
       (item) => selectedArray.indexOf(item.id) > -1
     );
 
-    getSelectedTechnologiesData = filteredTechnologies.map(
+    getSelectedTechnologiesData = filteredTechnologies?.map(
       (technology) => technology.command
-    );
+    ) || [];
   };
 
   const selectOperator = (e: any) => {
-    // selectedOperators.push(e.detail.operator);
     const objIndex = selectedOperators.findIndex(
       (obj) => obj.key == e.detail.operator.key
-    ); 
+    );
 
     if (objIndex > -1) {
       selectedOperators[objIndex] = e.detail.operator;
@@ -64,7 +56,6 @@
     getSelectedOperatorsData = filteredOperators.map(
       (technology) => technology.command
     );
-    console.log(getSelectedOperatorsData);
   };
 </script>
 
@@ -74,7 +65,6 @@
       <div class="col technologies-col">
         <TechnologiesList
           technologiesListData={getConfiguratorData.technologies}
-          operatorsListData={getConfiguratorData.operators}
           on:select-technology={selectTechnology}
           on:select-operator={selectOperator}
         />
@@ -88,10 +78,10 @@
           />
         </div>
       </div>
-      <div class="clearfix" />
+      <div class="clearfix"></div>
       <div class="operators-checkboxes">
         <div class="check__item">
-          {#each getConfiguratorData.operators as operator}
+          {#each getConfiguratorData.operators as operator (operator.key)}
             <OperatorCheckBox {operator} on:select-operator={selectOperator} />
           {/each}
         </div>
@@ -122,7 +112,7 @@
       }
       .operators-checkboxes {
         order: 2;
-        
+
       }
     }
   }

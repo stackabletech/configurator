@@ -1,13 +1,25 @@
 <script lang="ts">
   import { createEventDispatcher } from "svelte";
 
-  const imagesBaseUrl = process.env.IMAGES_BASE_URL;
+  const imagesBaseUrl = import.meta.env.VITE_IMAGES_BASE_URL;
 
-  export let technology: Technology;
-  let itemActive: boolean = false;
+  interface Props {
+    technology: Technology;
+  }
+
+  let { technology }: Props = $props();
+  let itemActive: boolean = $state(technology.required);
   const dispatch = createEventDispatcher();
 
-  function selectTechnology(id: number) {
+  // svelte-ignore state_referenced_locally
+  if (itemActive) {
+    dispatch("select-technology", { id: technology.id });
+  }
+
+  function selectTechnology() {
+    if (technology.required) {
+      return;
+    }
     itemActive = !itemActive;
     dispatch("select-technology", { id: technology.id });
   }
@@ -17,7 +29,7 @@
   <button
     class="technology-item-button"
     class:item-active={itemActive}
-    on:click={() => selectTechnology(technology.id)}
+    onclick={() => selectTechnology(technology.id)}
   >
     <div class="itm-logo-container">
       <span class="item-logo">
@@ -51,11 +63,11 @@
     @media (hover: hover) {
       &:hover {
         background: rgb(39, 46, 58);
-  
+
         .item-logo {
           opacity: 0;
           visibility: hidden;
-  
+
           &.active {
             opacity: 1;
             visibility: visible;
@@ -65,7 +77,7 @@
           background: #b90069;
         }
       }
-      
+
     }
 
     &.item-active {

@@ -1,12 +1,13 @@
 /// <reference types="svelte" />
 
 type Technology = {
-    id: number;
-    name: string;
-    img: string;
-    imgActive: string;
-    command: string;
-}
+  id: number;
+  name: string;
+  img: string;
+  imgActive: string;
+  command: string;
+  required: boolean;
+};
 
 type Config = {
   command: string;
@@ -19,3 +20,9 @@ type Operator = {
   key: string;
   checked: false;
 };
+
+interface ConfiguratorData {
+  config: Config,
+  operators: Operator[];
+  technologies: Technology[];
+}

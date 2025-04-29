@@ -1,73 +1,56 @@
 {
   "config": {
-    "command": "python3",
-    "script": "./setup_sdp.py"
+    "command": "stackablectl",
+    "script": "operator install"
   },
   "operators": [
     {
-      "key": "monitoring",
-      "name": "Monitoring",
-      "command": "--prometheus",
-      "checked": false
-    },
-    {
       "key": "kindCluster",
       "name": "Kind Cluster",
-      "command": "--kind",
-      "checked": false
-    },
-    {
-      "key": "examples",
-      "name": "Examples",
-      "command": "--examples",
-      "checked": false
-    },
-    {
-      "key": "debugMode",
-      "name": "Debug Mode",
-      "command": "--debug",
+      "command": "--cluster kind",
       "checked": false
     }
   ],
   "technologies": [
     {
       "id": 1,
-      "name": "Trino",
-      "img": "trino.png?v=3",
-      "imgActive": "trino-active.png?v=3",
-      "command": "trino"
+      "name": "Stackable",
+      "img": "stackable.png",
+      "imgActive": "stackable.png",
+      "command": "commons secret opa listener",
+      "required": true
     },
     {
       "id": 2,
-      "name": "Spark",
+      "name": "Apache Spark",
       "img": "apache-spark.png?v=3",
       "imgActive": "apache-spark-active.png?v=3",
-      "command": "spark"
+      "command": "spark-k8s"
     },
     {
       "id": 3,
-      "name": "Nifi",
+      "name": "Apache NiFi",
       "img": "apache-nifi.png?v=3",
       "imgActive": "apache-nifi-active.png?v=3",
       "command": "nifi"
     },
     {
       "id": 4,
-      "name": "Kafka",
+      "name": "Apache Kafka",
       "img": "kafta.png?v=3",
       "imgActive": "kafta-active.png?v=3",
       "command": "kafka"
     },
     {
       "id": 5,
-      "name": "Airflow",
+      "name": "Apache Airflow",
       "img": "apache-airflow.png?v=3",
       "imgActive": "apache-airflow-active.png?v=3",
       "command": "airflow"
     },
     {
       "id": 6,
-      "name": "Druid",
+      "name": "Apache Druid",
       "img": "druid.png?v=3",
       "imgActive": "druid-active.png?v=3",
       "command": "druid"
@@ -81,38 +64,38 @@
     },
     {
       "id": 8,
-      "name": "Apache Hbase",
+      "name": "Apache HBase",
       "img": "apache-hbase.png?v=3",
       "imgActive": "apache-hbase-active.png?v=3",
       "command": "hbase"
     },
     {
       "id": 9,
-      "name": "Hadoop",
+      "name": "Apache Hadoop HDFS",
       "img": "hadoop.png?v=3",
       "imgActive": "hadoop-active.png?v=3",
       "command": "hdfs"
     },
     {
       "id": 10,
-      "name": "Apache Zoo Keeper",
+      "name": "Apache ZooKeeper",
       "img": "apache-zoo-keeper.png?v=3",
       "imgActive": "apache-zoo-keeper-active.png?v=3",
       "command": "zookeeper"
     },
     {
       "id": 11,
-      "name": "Hive",
+      "name": "Apache Hive",
       "img": "hive.png?v=3",
       "imgActive": "hive-active.png?v=3",
       "command": "hive"
     },
     {
       "id": 12,
-      "name": "Apache IoTDB",
-      "img": "apache-iotdb.png?v=3",
-      "imgActive": "apache-iotdb-active.png?v=3",
-      "command": "iotdb"
+      "name": "Trino",
+      "img": "trino.png?v=3",
+      "imgActive": "trino-active.png?v=3",
+      "command": "trino"
     }
   ]
 }
