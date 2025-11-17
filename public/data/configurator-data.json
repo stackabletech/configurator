@@ -96,6 +96,13 @@
       "img": "trino.png?v=3",
       "imgActive": "trino-active.png?v=3",
       "command": "trino"
+    },
+    {
+      "id": 13,
+      "name": "Opensearch",
+      "img": "opensearch.png?v=3",
+      "imgActive": "opensearch-active.png?v=3",
+      "command": "opensearch"
     }
   ]
 }
