@@ -99,7 +99,7 @@
     },
     {
       "id": 13,
-      "name": "Opensearch",
+      "name": "OpenSearch",
       "img": "opensearch.png?v=3",
       "imgActive": "opensearch-active.png?v=3",
       "command": "opensearch"
